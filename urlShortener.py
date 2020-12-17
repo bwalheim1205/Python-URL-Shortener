@@ -60,7 +60,7 @@ Input
 def convertToBase10(num):
     sum = 0
     for i in range(len(num)):
-        sum += legalChars.find(num[i]) * 62**i
+        sum += legalChars.find(num[len(num)-1-i]) * 62**i
     return sum
 
 
@@ -191,14 +191,19 @@ def redirect_short_url(short_url):
 
 if __name__ == '__main__':
     
-    #Connects to url database
-    print("Connecting to Database...")
-    connection = create_connection(dbPath)
+    # #Connects to url database
+    # print("Connecting to Database...")
+    # connection = create_connection(dbPath)
     
-    #Creates tAble
-    print("\nChecking Tables")
-    create_table(connection)
+    # #Creates tAble
+    # print("\nChecking Tables")
+    # create_table(connection)
 
-    print("\nLaunching Website")
-    app.run(debug=True)
+    # print("\nLaunching Website")
+    # app.run(debug=True)
+
+    for num in range(3845):
+        print(convertToBase62(num) + " " + str(convertToBase10(convertToBase62(num))))
+
+
     
